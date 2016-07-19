@@ -59,6 +59,8 @@ Plug 'Shougo/deoplete.nvim', { 'do': function('DoRemote') }
 
 Plug 'itchyny/lightline.vim'
 
+Plug 'alvan/vim-closetag'
+
 call plug#end()
 
 " Settings
@@ -68,3 +70,6 @@ let g:auto_ctags_directory_list = ['.git']
 let g:auto_ctags_tags_name = 'tags'
 let g:auto_ctags_tags_args = '--tag-relative --recurse --sort=yes --exclude=vendor --exclude=.git --PHP-kinds=+cf --regex-php=/^[ \t]*trait[ \t]+([a-z0_9_]+)/\1/t,traits/i'
 let g:deoplete#enable_at_startup = 1
+
+" filenames like *.xml, *.html, *.xhtml, ...
+let g:closetag_filenames = "*.html,*.xhtml,*.phtml"
