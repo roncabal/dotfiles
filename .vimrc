@@ -34,7 +34,7 @@ function! IPhpInsertUse()
 endfunction
 
 function! IPhpExpandClass()
-    class PhpExpandClass()
+    call PhpExpandClass()
     call feedkeys('a', 'n')
 endfunction
 
