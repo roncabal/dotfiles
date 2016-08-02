@@ -1,31 +1,48 @@
 " Syntax
-syntax enable
-set number
-set relativenumber
+syntax enable        " Enables colored syntax
+set number           " Shows line numbers
+set relativenumber   " Show numbers relative to your current line
 set tabstop=4 	     " Sets the width per tab
 set shiftwidth=4     " Sets the number of spaces per tab
-set expandtab        "  Converts tabs into spaces
-set nowrap
+set expandtab        " Converts tabs into spaces
+set nowrap           " Prevent long codes to wrap
+
+" Tabs for html
+autocmd FileType html setlocal shiftwidth=2 tabstop=2 noexpandtab
+
+" Shows tabs, end of line, etc...
 set list
 set listchars=eol:¬,tab:>-,trail:·,extends:>,precedes:<
 
-set clipboard=unnamed
+" Update changed files
+set autoread
 
-" Remapping
+" Key Remapping
 nnoremap <F1> <esc>:source ~/.vimrc<cr>
 inoremap <F1> <esc>:source ~/.vimrc<cr>
 
 noremap <C-p> <esc>:FZF<cr>
 noremap <C-n> :NERDTreeToggle<CR>
-noremap <C-t> :vsplit<CR>
+noremap <F2> <esc>:vsplit<CR>
+noremap <F3> <esc>:split<CR>
+noremap <F4> <esc>:tabe<CR>
 
 "PHP Expand Class
 function! IPhpInsertUse()
     call PhpInsertUse()
     call feedkeys('a',  'n')
 endfunction
+
+function! IPhpExpandClass()
+    class PhpExpandClass()
+    call feedkeys('a', 'n')
+endfunction
+
+" Auto use class for php
 autocmd FileType php inoremap <Leader>u <Esc>:call IPhpInsertUse()<CR>
 autocmd FileType php noremap <Leader>u :call PhpInsertUse()<CR>
+autocmd FileType php inoremap <Leader>e :call IPhpExpandClass()<CR>
+autocmd FileType php noremap <Leader>e :call PhpExpandClass()<CR>
 
 " I dont know what this does, but I need this
 function! DoRemote(arg)
@@ -57,13 +74,12 @@ Plug 'arnaud-lb/vim-php-namespace'
 " Autocomplete
 Plug 'Shougo/deoplete.nvim', { 'do': function('DoRemote') }
 
+" Vim bar
 Plug 'itchyny/lightline.vim'
-
-Plug 'alvan/vim-closetag'
 
 call plug#end()
 
-" Settings
+" tags
 set tags+=.git/tags,.git/tags.vendor
 let g:auto_ctags = 1
 let g:auto_ctags_directory_list = ['.git']
@@ -71,5 +87,10 @@ let g:auto_ctags_tags_name = 'tags'
 let g:auto_ctags_tags_args = '--tag-relative --recurse --sort=yes --exclude=vendor --exclude=.git --PHP-kinds=+cf --regex-php=/^[ \t]*trait[ \t]+([a-z0_9_]+)/\1/t,traits/i'
 let g:deoplete#enable_at_startup = 1
 
-" filenames like *.xml, *.html, *.xhtml, ...
-let g:closetag_filenames = "*.html,*.xhtml,*.phtml"
+" Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<c-b>"
+let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+
+" If you want :UltiSnipsEdit to split your window.
+let g:UltiSnipsEditSplit="vertical"

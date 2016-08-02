@@ -69,6 +69,7 @@ alias vibasecms="/Applications/AMPPS/www/base-cms; vi"
 alias php56='/Applications/AMPPS/php-5.6/bin/php'
 alias vioe="/Applications/AMPPS/www/online-exam; vi"
 alias vip="cd /Applications/AMPPS/www/putney; vi"
+alias phu="vendor/bin/phpunit"
 
 # Preferred editor for local and remote sessions
 # if [[ -n $SSH_CONNECTION ]]; then
@@ -93,9 +94,10 @@ alias vip="cd /Applications/AMPPS/www/putney; vi"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 #PATH="/usr/local/Cellar/python3/3.5.2/Frameworks/Python.framework/Versions/3.5/bin:$PATH"
 PATH="/Applications/AMPPS/php/bin:/Applications/AMPPS/mysql/bin:$PATH"
+PATH="$HOME/.node/bin:$PATH"
 
 function phptags() {
-    ctags -f .git/tags app
+    ctags -f .git/tags app src
     ctags -f .git/tags.vendor vendor
 
     echo "Generated ctags!"
