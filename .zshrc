@@ -5,7 +5,7 @@ export ZSH=/Users/Ron/.oh-my-zsh
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
-ZSH_THEME="robbyrussell"
+ZSH_THEME="agnoster"
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -95,6 +95,7 @@ alias phu="vendor/bin/phpunit"
 #PATH="/usr/local/Cellar/python3/3.5.2/Frameworks/Python.framework/Versions/3.5/bin:$PATH"
 PATH="/Applications/AMPPS/php/bin:/Applications/AMPPS/mysql/bin:$PATH"
 PATH="$HOME/.node/bin:$PATH"
+PATH="$HOME/.bin:$PATH"
 
 function phptags() {
     ctags -f .git/tags app src

@@ -6,9 +6,7 @@ set tabstop=4 	     " Sets the width per tab
 set shiftwidth=4     " Sets the number of spaces per tab
 set expandtab        " Converts tabs into spaces
 set nowrap           " Prevent long codes to wrap
-
-" Tabs for html
-autocmd FileType html setlocal shiftwidth=2 tabstop=2 noexpandtab
+set guifont=*
 
 " Shows tabs, end of line, etc...
 set list
@@ -77,7 +75,20 @@ Plug 'Shougo/deoplete.nvim', { 'do': function('DoRemote') }
 " Vim bar
 Plug 'itchyny/lightline.vim'
 
+" Twig
+Plug 'Glench/Vim-Jinja2-Syntax'
+
 call plug#end()
+
+" Ligthline
+let g:lightline = {
+    \ 'component': {
+    \   'readonly': '%{&readonly?"":""}',
+    \   'modified': '%{&filetype=="help"?"":&modified?"+":&modifiable?"":"-"}'
+    \ },
+    \ 'separator': { 'left': '', 'right': '' },
+    \ 'subseparator': { 'left': '', 'right': '' }
+    \ }
 
 " tags
 set tags+=.git/tags,.git/tags.vendor
@@ -94,3 +105,6 @@ let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 
 " If you want :UltiSnipsEdit to split your window.
 let g:UltiSnipsEditSplit="vertical"
+
+" Vim-Jinja2
+autocmd BufRead,BufNewFile *.html.twig set filetype=jinja
