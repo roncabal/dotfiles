@@ -12,6 +12,9 @@ set guifont=*
 set list
 set listchars=eol:¬,tab:>-,trail:·,extends:>,precedes:<
 
+" Use tabs on these projects
+autocmd BufRead,BufNewFile,BufEnter /Applications/AMPPS/www/jmag/**/* setlocal noexpandtab
+
 " Update changed files
 set autoread
 
@@ -77,6 +80,9 @@ Plug 'itchyny/lightline.vim'
 
 " Twig
 Plug 'Glench/Vim-Jinja2-Syntax'
+
+" Emmet
+Plug 'mattn/emmet-vim'
 
 call plug#end()
 

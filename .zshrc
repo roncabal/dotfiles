@@ -64,11 +64,10 @@ source $ZSH/oh-my-zsh.sh
 export EDITOR='nvim'
 alias vi='nvim'
 alias so="source $HOME/.zshrc"
-alias projects="/Applications/AMPPS/www"
-alias vibasecms="/Applications/AMPPS/www/base-cms; vi"
+alias projects="~/Development/office"
+alias private="~/Development/private"
 alias php56='/Applications/AMPPS/php-5.6/bin/php'
-alias vioe="/Applications/AMPPS/www/online-exam; vi"
-alias vip="cd /Applications/AMPPS/www/putney; vi"
+alias php53='/Applications/AMPPS/php-5.3/bin/php'
 alias phu="vendor/bin/phpunit"
 
 # Preferred editor for local and remote sessions
