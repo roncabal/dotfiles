@@ -13,7 +13,7 @@ set list
 set listchars=eol:¬,tab:>-,trail:·,extends:>,precedes:<
 
 " Use tabs on these projects
-autocmd BufRead,BufNewFile,BufEnter /Applications/AMPPS/www/jmag/**/* setlocal noexpandtab
+autocmd BufRead,BufNewFile,BufEnter ~/Development/office/jmag/**/* setlocal noexpandtab
 
 " Update changed files
 set autoread
@@ -114,3 +114,4 @@ let g:UltiSnipsEditSplit="vertical"
 
 " Vim-Jinja2
 autocmd BufRead,BufNewFile *.html.twig set filetype=jinja
+autocmd BufRead,BufNewFile *.twig set filetype=jinja
