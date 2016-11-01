@@ -8,7 +8,8 @@ set expandtab        " Converts tabs into spaces
 set nowrap           " Prevent long codes to wrap
 set guifont=*
 
-colorscheme despacio
+" Color Schemes
+colorscheme monokai
 
 " Shows tabs, end of line, etc...
 set list
@@ -87,7 +88,7 @@ Plug 'Glench/Vim-Jinja2-Syntax'
 Plug 'mattn/emmet-vim'
 
 " Color Schemes
-Plug 'alessandroyorba/despacio'
+Plug 'crusoexia/vim-monokai'
 
 call plug#end()
 
