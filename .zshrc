@@ -68,7 +68,7 @@ alias projects="~/Development/office"
 alias private="~/Development/private"
 alias php56='/Applications/AMPPS/php-5.6/bin/php'
 alias php53='/Applications/AMPPS/php-5.3/bin/php'
-alias phu="vendor/bin/phpunit"
+alias pp="vendor/bin/phpunit"
 
 # Preferred editor for local and remote sessions
 # if [[ -n $SSH_CONNECTION ]]; then
@@ -94,6 +94,7 @@ alias phu="vendor/bin/phpunit"
 #PATH="/usr/local/Cellar/python3/3.5.2/Frameworks/Python.framework/Versions/3.5/bin:$PATH"
 PATH="/Applications/AMPPS/php/bin:/Applications/AMPPS/mysql/bin:$PATH"
 PATH="$HOME/.node/bin:$PATH"
+PATH="$HOME/.composer/vendor/bin:$PATH"
 PATH="$HOME/.bin:$PATH"
 
 function phptags() {
