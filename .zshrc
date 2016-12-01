@@ -68,7 +68,9 @@ alias projects="~/Development/office"
 alias private="~/Development/private"
 alias php56='/Applications/AMPPS/php-5.6/bin/php'
 alias php53='/Applications/AMPPS/php-5.3/bin/php'
+alias php7='/Applications/AMPPS/php-7.0/bin/php'
 alias pp="vendor/bin/phpunit"
+alias please='sudo $(fc -ln -1)'
 
 # Preferred editor for local and remote sessions
 # if [[ -n $SSH_CONNECTION ]]; then
@@ -100,6 +102,7 @@ PATH="$HOME/.bin:$PATH"
 function phptags() {
     ctags -f .git/tags app src
     ctags -f .git/tags.vendor vendor
+    ctags -f .git/tags.tests tests
 
     echo "Generated ctags!"
 }

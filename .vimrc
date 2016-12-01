@@ -8,6 +8,8 @@ set expandtab        " Converts tabs into spaces
 set nowrap           " Prevent long codes to wrap
 set guifont=*
 
+"set langmap='q,\\,w,.e,pr,yt,fy,gu,ci,ro,lp,/[,=],aa,os,ed,uf,ig,dh,hj,tk,nl,s\\;,-',\\;z,qx,jc,kv,xb,bn,mm,w\\,,v.,z/,[-,]=,\"Q,<W,>E,PR,YT,FY,GU,CI,RO,LP,?{,+},AA,OS,ED,UF,IG,DH,HJ,TK,NL,S:,_\",:Z,QX,JC,KV,XB,BN,MM,W<,V>,Z?
+
 " Color Schemes
 colorscheme monokai
 
@@ -103,7 +105,7 @@ let g:lightline = {
     \ }
 
 " tags
-set tags+=.git/tags,.git/tags.vendor
+set tags+=.git/tags,.git/tags.vendor,.git/tags.test
 let g:auto_ctags = 1
 let g:auto_ctags_directory_list = ['.git']
 let g:auto_ctags_tags_name = 'tags'
