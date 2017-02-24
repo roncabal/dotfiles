@@ -98,6 +98,9 @@ Plug 'crusoexia/vim-monokai'
 " Vue for vim
 "Plug 'posva/vim-vue'
 
+" Vim gutter
+Plug 'airblade/vim-gitgutter'
+
 call plug#end()
 
 " Ligthline
