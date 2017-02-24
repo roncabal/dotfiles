@@ -11,21 +11,24 @@ set guifont=*
 "set langmap='q,\\,w,.e,pr,yt,fy,gu,ci,ro,lp,/[,=],aa,os,ed,uf,ig,dh,hj,tk,nl,s\\;,-',\\;z,qx,jc,kv,xb,bn,mm,w\\,,v.,z/,[-,]=,\"Q,<W,>E,PR,YT,FY,GU,CI,RO,LP,?{,+},AA,OS,ED,UF,IG,DH,HJ,TK,NL,S:,_\",:Z,QX,JC,KV,XB,BN,MM,W<,V>,Z?
 
 " Color Schemes
-colorscheme monokai
+colorscheme despacio
 
 " Shows tabs, end of line, etc...
 set list
 set listchars=eol:¬,tab:>-,trail:·,extends:>,precedes:<
 
 " Use tabs on these projects
-autocmd BufRead,BufNewFile,BufEnter ~/Development/office/jmag/**/* setlocal noexpandtab
+autocmd BufRead,BufNewFile,BufEnter ~/Development/office/cyberzone/**/* setlocal noexpandtab
+
+" Use 2 spaces for css, js, and vue
+autocmd BufRead,BufNewFile,BufEnter *.css,*.scss,*.js,*.vue setlocal tabstop=2 shiftwidth=2
 
 " Update changed files
 set autoread
 
 " Key Remapping
-nnoremap <F1> <esc>:source ~/.vimrc<cr>
-inoremap <F1> <esc>:source ~/.vimrc<cr>
+nnoremap <F1> <esc>:source ~/.config/nvim/init.vim<cr>
+inoremap <F1> <esc>:source ~/.config/nvim/init.vim<cr>
 
 noremap <C-p> <esc>:FZF<cr>
 noremap <C-n> :NERDTreeToggle<CR>
@@ -92,6 +95,9 @@ Plug 'mattn/emmet-vim'
 " Color Schemes
 Plug 'crusoexia/vim-monokai'
 
+" Vue for vim
+"Plug 'posva/vim-vue'
+
 call plug#end()
 
 " Ligthline
@@ -123,3 +129,4 @@ let g:UltiSnipsEditSplit="vertical"
 " Vim-Jinja2
 autocmd BufRead,BufNewFile *.html.twig set filetype=jinja
 autocmd BufRead,BufNewFile *.twig set filetype=jinja
+autocmd BufRead,BufNewFile *.vue set filetype=html
