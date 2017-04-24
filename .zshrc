@@ -99,6 +99,8 @@ PATH="$HOME/.node/bin:$PATH"
 PATH="$HOME/.composer/vendor/bin:$PATH"
 PATH="$HOME/.bin:$PATH"
 
+alias ctags="`brew --prefix`/bin/ctags"
+
 function phptags() {
     ctags -f .git/tags app src
     ctags -f .git/tags.vendor vendor

@@ -18,7 +18,7 @@ set list
 set listchars=eol:¬,tab:>-,trail:·,extends:>,precedes:<
 
 " Use tabs on these projects
-autocmd BufRead,BufNewFile,BufEnter ~/Development/office/cyberzone/**/* setlocal noexpandtab
+autocmd BufRead,BufNewFile,BufEnter ~/Development/web/wordpress/**/* setlocal noexpandtab
 
 " Use 2 spaces for css, js, and vue
 autocmd BufRead,BufNewFile,BufEnter *.css,*.scss,*.js,*.vue setlocal tabstop=2 shiftwidth=2
@@ -27,6 +27,7 @@ autocmd BufRead,BufNewFile,BufEnter *.css,*.scss,*.js,*.vue setlocal tabstop=2 s
 set autoread
 
 " Key Remapping
+imap `` <Esc>
 nnoremap <F1> <esc>:source ~/.config/nvim/init.vim<cr>
 inoremap <F1> <esc>:source ~/.config/nvim/init.vim<cr>
 
