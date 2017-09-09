@@ -2,7 +2,7 @@
 syntax enable        " Enables colored syntax
 set number           " Shows line numbers
 set relativenumber   " Show numbers relative to your current line
-set tabstop=4 	     " Sets the width per tab
+set tabstop=4        " Sets the width per tab
 set shiftwidth=4     " Sets the number of spaces per tab
 set expandtab        " Converts tabs into spaces
 set nowrap           " Prevent long codes to wrap
@@ -10,12 +10,26 @@ set guifont=*
 
 "set langmap='q,\\,w,.e,pr,yt,fy,gu,ci,ro,lp,/[,=],aa,os,ed,uf,ig,dh,hj,tk,nl,s\\;,-',\\;z,qx,jc,kv,xb,bn,mm,w\\,,v.,z/,[-,]=,\"Q,<W,>E,PR,YT,FY,GU,CI,RO,LP,?{,+},AA,OS,ED,UF,IG,DH,HJ,TK,NL,S:,_\",:Z,QX,JC,KV,XB,BN,MM,W<,V>,Z?
 
+if (empty($TMUX))
+  if (has("nvim"))
+  "For Neovim 0.1.3 and 0.1.4 < https://github.com/neovim/neovim/pull/2198 >
+  let $NVIM_TUI_ENABLE_TRUE_COLOR=1
+  endif
+  "For Neovim > 0.1.5 and Vim > patch 7.4.1799 < https://github.com/vim/vim/commit/61be73bb0f965a895bfb064ea3e55476ac175162 >
+  "Based on Vim patch 7.4.1770 (`guicolors` option) < https://github.com/vim/vim/commit/8a633e3427b47286869aa4b96f2bfc1fe65b25cd >
+  " < https://github.com/neovim/neovim/wiki/Following-HEAD#20160511 >
+  if (has("termguicolors"))
+    set termguicolors
+  endif
+endif
+
 " Color Schemes
-colorscheme despacio
+colorscheme vim-material
 
 " Shows tabs, end of line, etc...
 set list
-set listchars=eol:¬,tab:>-,trail:·,extends:>,precedes:<
+set listchars=tab:>-,trail:·,extends:>,precedes:<
+"set listchars=eol:¬,tab:>-,trail:·,extends:>,precedes:<
 
 " Use tabs on these projects
 autocmd BufRead,BufNewFile,BufEnter ~/Development/web/wordpress/**/* setlocal noexpandtab
@@ -33,9 +47,6 @@ inoremap <F1> <esc>:source ~/.config/nvim/init.vim<cr>
 
 noremap <C-p> <esc>:FZF<cr>
 noremap <C-n> :NERDTreeToggle<CR>
-noremap <F2> <esc>:vsplit<CR>
-noremap <F3> <esc>:split<CR>
-noremap <F4> <esc>:tabe<CR>
 
 "PHP Expand Class
 function! IPhpInsertUse()
@@ -93,11 +104,11 @@ Plug 'Glench/Vim-Jinja2-Syntax'
 " Emmet
 Plug 'mattn/emmet-vim'
 
-" Color Schemes
-Plug 'crusoexia/vim-monokai'
-
 " Vue for vim
 "Plug 'posva/vim-vue'
+
+" Syntastic
+Plug 'vim-syntastic/syntastic'
 
 " Vim gutter
 Plug 'airblade/vim-gitgutter'
@@ -134,3 +145,16 @@ let g:UltiSnipsEditSplit="vertical"
 autocmd BufRead,BufNewFile *.html.twig set filetype=jinja
 autocmd BufRead,BufNewFile *.twig set filetype=jinja
 autocmd BufRead,BufNewFile *.vue set filetype=html
+
+"Syntastic
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+let g:syntastic_html_checkers=['']
+
+let g:airline_theme='one'
