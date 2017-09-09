@@ -24,7 +24,8 @@ if (empty($TMUX))
 endif
 
 " Color Schemes
-colorscheme vim-material
+set background=dark
+colorscheme two-firewatch
 
 " Shows tabs, end of line, etc...
 set list
@@ -117,6 +118,7 @@ call plug#end()
 
 " Ligthline
 let g:lightline = {
+    \ 'colorscheme': 'twofirewatch',
     \ 'component': {
     \   'readonly': '%{&readonly?"":""}',
     \   'modified': '%{&filetype=="help"?"":&modified?"+":&modifiable?"":"-"}'
@@ -156,5 +158,3 @@ let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 let g:syntastic_html_checkers=['']
-
-let g:airline_theme='one'
