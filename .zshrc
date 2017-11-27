@@ -64,13 +64,17 @@ source $ZSH/oh-my-zsh.sh
 export EDITOR='nvim'
 alias vi='nvim'
 alias so="source $HOME/.zshrc"
-alias projects="~/Development/office"
-alias private="~/Development/private"
 alias php56='/Applications/AMPPS/php-5.6/bin/php'
 alias php53='/Applications/AMPPS/php-5.3/bin/php'
 alias php7='/Applications/AMPPS/php-7.0/bin/php'
 alias pp="vendor/bin/phpunit"
+alias sut="vendor/bin/simple-phpunit"
 alias please='sudo $(fc -ln -1)'
+alias sf='php bin/console'
+alias tmux='tmux -2'
+
+export TERM=xterm-256color
+[ -n "$TMUX" ] && export TERM=screen-256color
 
 # Preferred editor for local and remote sessions
 # if [[ -n $SSH_CONNECTION ]]; then
@@ -105,6 +109,14 @@ function phptags() {
     ctags -f .git/tags app src
     ctags -f .git/tags.vendor vendor
     ctags -f .git/tags.tests tests
+
+    echo "Generated ctags!"
+}
+
+function customtags() {
+    ctags -f .tags/tags app src provider
+    ctags -f .tags/tags.vendor vendor
+    ctags -f .tags/tags.tests tests
 
     echo "Generated ctags!"
 }

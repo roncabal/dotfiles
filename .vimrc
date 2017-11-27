@@ -34,7 +34,7 @@ set listchars=tab:>-,trail:·,extends:>,precedes:<
 "set listchars=eol:¬,tab:>-,trail:·,extends:>,precedes:<
 
 " Use tabs on these projects
-autocmd BufRead,BufNewFile,BufEnter ~/Development/web/wordpress/**/* setlocal noexpandtab
+"autocmd BufRead,BufNewFile,BufEnter ~/Development/web/wordpress/**/* setlocal noexpandtab
 
 " Use 2 spaces for css, js, and vue
 autocmd BufRead,BufNewFile,BufEnter *.css,*.scss,*.js,*.vue setlocal tabstop=2 shiftwidth=2
@@ -129,12 +129,21 @@ let g:lightline = {
     \ }
 
 " tags
-set tags+=.git/tags,.git/tags.vendor,.git/tags.test
-let g:auto_ctags = 1
-let g:auto_ctags_directory_list = ['.git']
-let g:auto_ctags_tags_name = 'tags'
-let g:auto_ctags_tags_args = '--tag-relative --recurse --sort=yes --exclude=vendor --exclude=.git --PHP-kinds=+cf --regex-php=/^[ \t]*trait[ \t]+([a-z0_9_]+)/\1/t,traits/i'
-let g:deoplete#enable_at_startup = 1
+:set tags+=.git/tags,.git/tags.vendor,.git/tags.test
+:let g:auto_ctags = 1
+:let g:auto_ctags_directory_list = ['.git']
+:let g:auto_ctags_tags_name = 'tags'
+:let g:auto_ctags_tags_args = '--tag-relative --recurse --sort=yes --exclude=vendor --exclude=.git --PHP-kinds=+cf --regex-php=/^[ \t]*trait[ \t]+([a-z0_9_]+)/\1/t,traits/i'
+:let g:deoplete#enable_at_startup = 1
+
+function! ICustomTags()
+    :set tags+=.tags/tags,.tags/tags.vendor,.tags/tags.test
+    :let g:auto_ctags = 1
+    :let g:auto_ctags_directory_list = ['.tags']
+    :let g:auto_ctags_tags_name = 'tags'
+    :let g:auto_ctags_tags_args = '--tag-relative --recurse --sort=yes --exclude=vendor --exclude=.git --PHP-kinds=+cf --regex-php=/^[ \t]*trait[ \t]+([a-z0_9_]+)/\1/t,traits/i'
+    :let g:deoplete#enable_at_startup = 1
+endfunction
 
 " Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
 let g:UltiSnipsExpandTrigger="<tab>"
