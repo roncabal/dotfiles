@@ -43,12 +43,13 @@ autocmd BufRead,BufNewFile,BufEnter *.css,*.scss,*.js,*.vue setlocal tabstop=2 s
 set autoread
 
 " Key Remapping
-imap `` <Esc>
 nnoremap <F1> <esc>:source ~/.config/nvim/init.vim<cr>
 inoremap <F1> <esc>:source ~/.config/nvim/init.vim<cr>
 
 noremap <C-p> <esc>:FZF<cr>
 noremap <C-n> :NERDTreeToggle<CR>
+
+noremap <C-\> :vsplit<CR>
 
 "PHP Expand Class
 function! IPhpInsertUse()
@@ -147,8 +148,8 @@ endfunction
 
 " Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
 let g:UltiSnipsExpandTrigger="<tab>"
-let g:UltiSnipsJumpForwardTrigger="<c-b>"
-let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+let g:UltiSnipsJumpForwardTrigger="<c-9>"
+let g:UltiSnipsJumpBackwardTrigger="<c-0>"
 
 " If you want :UltiSnipsEdit to split your window.
 let g:UltiSnipsEditSplit="vertical"
