@@ -25,8 +25,8 @@ if (has("termguicolors"))
 endif
 
 " Color Schemes
-set background=dark
-colorscheme two-firewatch
+"set background=dark
+colorscheme darcula
 
 " Shows tabs, end of line, etc...
 set list
