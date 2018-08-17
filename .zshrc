@@ -1,5 +1,5 @@
 # Path to your oh-my-zsh installation.
-export ZSH=/Users/ronemersoncabal/.oh-my-zsh
+export ZSH=/Users/ron/.oh-my-zsh
 
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
@@ -64,9 +64,6 @@ source $ZSH/oh-my-zsh.sh
 export EDITOR='nvim'
 alias vi='nvim'
 alias so="source $HOME/.zshrc"
-alias php56='/Applications/AMPPS/php-5.6/bin/php'
-alias php53='/Applications/AMPPS/php-5.3/bin/php'
-alias php7='/Applications/AMPPS/php-7.0/bin/php'
 alias pp="vendor/bin/phpunit"
 alias sut="vendor/bin/simple-phpunit"
 alias please='sudo $(fc -ln -1)'
@@ -106,17 +103,9 @@ PATH="$HOME/.bin:$PATH"
 alias ctags="`brew --prefix`/bin/ctags"
 
 function phptags() {
-    ctags -f .git/tags app src
-    ctags -f .git/tags.vendor vendor
+    ctags -f .git/tags src app
+    ctags -f .git/tags.vendor vendor lib
     ctags -f .git/tags.tests tests
-
-    echo "Generated ctags!"
-}
-
-function customtags() {
-    ctags -f .tags/tags app src provider
-    ctags -f .tags/tags.vendor vendor
-    ctags -f .tags/tags.tests tests
 
     echo "Generated ctags!"
 }
