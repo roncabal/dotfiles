@@ -99,6 +99,8 @@ PATH="/Applications/AMPPS/php/bin:/Applications/AMPPS/mysql/bin:$PATH"
 PATH="$HOME/.node/bin:$PATH"
 PATH="$HOME/.composer/vendor/bin:$PATH"
 PATH="$HOME/.bin:$PATH"
+PATH="$HOME/.symfony/bin:$PATH"
+
 
 alias ctags="`brew --prefix`/bin/ctags"
 
